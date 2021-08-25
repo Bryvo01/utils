@@ -43,3 +43,16 @@ gcloud compute instances create python-dev-machine \
   
   Go to https://remotedesktop.google.com/headless and follow the instructions to add access to your VM.
   Access the remote VM through https://remotedesktop.google.com/access
+
+### Connect JetBrains to GitHub
+click on the settings wheel
+click on All Settings...
+expand Version Control
+click on GitHub
+click on Add Account...
+
+### Check out an existing project
+click on Get from VCS on main screen
+select GitHub on the left
+select project
+click clone
