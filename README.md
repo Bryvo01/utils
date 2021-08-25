@@ -22,6 +22,7 @@ gcloud compute instances create python-dev-machine \
   --zone=us-central1-a \
   --machine-type=n1-standard-1 \
   --preemptible \
+  --image-project=ubuntu-os-cloud \
   --image=ubuntu-2004-focal-v20210820 \
   --boot-disk-size=10GB \
   --boot-disk-type=pd-standard \
