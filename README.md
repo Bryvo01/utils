@@ -6,12 +6,12 @@ Go there and thank him.
 First create an IP address to attach to the VM (change the names however you want).
 ```bash
 gcloud compute addresses create python-dev-machine-ip --project=dev-machine-323318 --network-tier=STANDARD --region=us-central1
-```bash
+```
 Now make some firewall rules (these should stick around if you've already made them).
 ```bash
 gcloud compute firewall-rules create allow-http --project=dev-machine323318 --direction=INGRESS --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
 gcloud compute firewall-rules create allow-https --project=dev-machine323318 --direction=INGRESS --network=default --action=ALLOW --rules=tcp:443 --source-ranges=0.0.0.0/0 --target-tags=https-server
-```bash
+```
 Time to get the IP address and make the VM!
 ```bash
 IP_ADDRESS_DEV_MACHINE=$(gcloud compute addresses list --filter="name:python-dev-machine-ip AND region:us-central1" --format="value(address_range())")
@@ -32,13 +32,13 @@ gcloud compute instances create python-dev-machine \
   --subnet=default \
   --tags=http-server,https-server \
   --labels=os=ubuntu-18-04-lts,cost-allocation=development,usage=python,configuration=v1-0-0
-  ```bash
+  ```
   
   Connect to your machine through SSH by going to https://console.cloud.google.com/compute/instances and add your user account to the chrome-remote-desktop Linux group
   ```bash
   sudo usermod -a -G chrome-remote-desktop $USER
   logout
-  ```bash
+  ```
   
   Go to https://remotedesktop.google.com/headless and follow the instructions to add access to your VM.
   Access the remote VM through https://remotedesktop.google.com/access
