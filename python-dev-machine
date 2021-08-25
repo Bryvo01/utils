@@ -65,3 +65,17 @@ rm awscliv2.zip
 
 # Install VSCode
 #sudo snap install --classic code
+
+# Install PyCharm Pro
+sudo snap install pycharm-professional --classic
+
+# Remove any orphaned dependencies
+sudo apt autoremove
+
+# Bring in the .bashrc and .bash_aliases
+git clone https://github.com/Bryvo01/utils.git
+mv utils/.bashrc ~/.bashrc
+mv utils/.bash_aliases ~/.bash_aliases
+
+# Get rid of the directory
+rm -rf utils/
