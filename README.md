@@ -22,8 +22,8 @@ gcloud compute instances create python-dev-machine \
   --zpne=us-central1-a \
   --machine-type=n1-standard-1 \
   --preemptible \
-  --image=ubuntu-1804-bionic-v20210817 \
-  --boot-disk=10GB \
+  --image=ubuntu-2004-focal-v20210820 \
+  --boot-disk-size=10GB \
   --boot-disk-type=pd-standard \
   --boot-disk-device-name=python-dev-machine \
   --metadata-from-file startup-script=python-dev-machine.sh \
@@ -31,7 +31,7 @@ gcloud compute instances create python-dev-machine \
   --address=$IP_ADDRESS_DEV_MACHINE \
   --subnet=default \
   --tags=http-server,https-server \
-  --labels=os=ubuntu-18-04-lts,cost-allocation=development,usage=python,configuration=v1-0-0
+  --labels=os=ubuntu-2004-lts,cost-allocation=development,usage=python,configuration=v1-0-0
   ```
   
   Connect to your machine through SSH by going to https://console.cloud.google.com/compute/instances and add your user account to the chrome-remote-desktop Linux group
