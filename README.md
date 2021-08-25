@@ -19,7 +19,7 @@ git clone https://github.com/Bryvo01/utils.git
 cd utils
 gcloud compute instances create python-dev-machine \
   --project=dev-machine-323318 \
-  --zpne=us-central1-a \
+  --zone=us-central1-a \
   --machine-type=n1-standard-1 \
   --preemptible \
   --image=ubuntu-2004-focal-v20210820 \
