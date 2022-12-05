@@ -104,6 +104,7 @@ alias less='less -R'
 alias apt='sudo apt'
 alias vi='vim'
 alias cpu="grep 'cpu ' /proc/stat | awk '{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}' | awk '{printf(\"%.1f\n\", \$1)}'"
+alias kubectl='microk8s kubectl'
 
 # have fun
 alias please='sudo'
