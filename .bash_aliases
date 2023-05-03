@@ -81,6 +81,7 @@ alias givm='gvim'
 alias cta='cat'
 alias gerp='grep'
 alias sl='ls'
+alias hsitory='history'
 
 # directory aliases
 alias home='cd ~'
@@ -104,7 +105,10 @@ alias less='less -R'
 alias apt='sudo apt'
 alias vi='vim'
 alias cpu="grep 'cpu ' /proc/stat | awk '{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}' | awk '{printf(\"%.1f\n\", \$1)}'"
-alias kubectl='microk8s kubectl'
+
+# grep aliases
+alias phgrep='cat ~/.persistent_history|grep --color'
+alias hgrep='history|grep --color'
 
 # have fun
 alias please='sudo'
