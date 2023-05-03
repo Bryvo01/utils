@@ -17,6 +17,7 @@ HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=500
+HISTTIMEFORMAT="%F %T  "
 
 # append to history instead of overwriting it; if you start a new terminal you have your old
 # session history
@@ -587,13 +588,19 @@ function __setprompt
 
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
+
+  # Create a persistent history file to compensate for multiple sessions
+  [[
+    $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$
+  ]]
+  local date_part="${BASH_REMATCH[1]}"
+  local command_part="${BASH_REMATCH[2]}"
+  if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
+  then
+    echo $date_part "|" "$command_part" >> ~/.persistent_history
+    export PERSISTENT_HISTORY_LAST="$command_part"
+  fi
 }
 PROMPT_COMMAND='__setprompt'
 
 eval "$(thefuck --alias)"
-
-# add tab naming for Windows terminal
-settitle () {
-  export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-  echo -ne '\033]0;'"$1"'\a'
-}
